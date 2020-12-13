@@ -42,6 +42,7 @@ while spawnning:
         spawnning = False
 falling = 0
 fall_stopper = pygame.Rect(0, 0,game_width , game_height)
+land_shark = []
 # ***************** Loop Land Below *****************
 # Everything under 'while running' will be repeated over and over again
 while running:
@@ -56,6 +57,12 @@ while running:
     pygame.draw.rect(screen, (255, 255, 255), player)
     pygame.draw.rect(screen, (255,255,0), enemy_hitbox)
 
+    prev = enemy_hitbox
+    for tail in land_shark:
+        pygame.draw.rect(screen, (255,255,0), tail)
+    land_shark.append(enemy_hitbox.copy())
+
+    
     if keys[pygame.K_RIGHT] or keys[pygame.K_d]:
         player_v_x += 0.3
     if keys[pygame.K_LEFT] or keys[pygame.K_a]:
@@ -83,6 +90,7 @@ while running:
         enemy_hitbox.y += 1
     else:
         if up_and_down_timer ==0:
+            land_shark.append(enemy_hitbox.copy())
             up_and_down_timer = 300
             enemy_down = True
         else:
