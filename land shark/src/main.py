@@ -116,7 +116,7 @@ while running:
         for enemy in enemies:
             if enemy.hitbox.colliderect(player) and falling >= 0:
                 if keys[pygame.K_SPACE]:
-                    falling -= 3
+                    falling -= 1
                 else:
                     falling_on = False
                     falling *= -bounce
@@ -129,10 +129,13 @@ while running:
 
         for tail in range (tail_size_max):
             if tail >= tail_size:
-                pygame.draw.rect(screen, (255,255,0), land_shark [tail])
+                if tail >= len(land_shark) -20:
+                    pygame.draw.rect(screen, (255,255,0), land_shark [tail])
+                else:
+                    pygame.draw.rect(screen, (240,240,0), land_shark [tail])
                 if land_shark [tail].colliderect(player) and falling >= 0:
                     if keys[pygame.K_SPACE]:
-                        falling -= 3
+                        falling -= 1
                     else:
                         falling_on = False
                         falling *= -bounce
@@ -142,14 +145,20 @@ while running:
                 else:
                     falling_on = True
 
-                    
+                land_shark [tail].x += 1
+
+
+            
+
+        
         if falling_on:
             falling += 0.01
+                
         player.y += falling
 
         #Tell pygame to update the screen
     for enemy in enemies:
         enemy.update(screen)
     pygame.display.update()
-    clock.tick(50)
+    clock.tick(999999999999999999999)
     pygame.display.set_caption("MY GAME fps: " + str(clock.get_fps()))
