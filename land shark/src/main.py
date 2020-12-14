@@ -42,6 +42,8 @@ while spawnning:
         spawnning = False
 falling = 0
 fall_stopper = pygame.Rect(0, 0,game_width , game_height)
+tail_size = 9
+tail_size_max = 0
 land_shark = []
 # ***************** Loop Land Below *****************
 # Everything under 'while running' will be repeated over and over again
@@ -57,16 +59,17 @@ while running:
     pygame.draw.rect(screen, (255, 255, 255), player)
     pygame.draw.rect(screen, (255,255,0), enemy_hitbox)
 
-    prev = enemy_hitbox
-    for tail in land_shark:
-        pygame.draw.rect(screen, (255,255,0), tail)
-    land_shark.append(enemy_hitbox.copy())
 
+    land_shark.append(enemy_hitbox.copy())
+    tail_size_max += 1
+    if tail_size_max >= 600:
+        tail_size += 1
     
     if keys[pygame.K_RIGHT] or keys[pygame.K_d]:
-        player_v_x += 0.3
+        player_v_x += 3
+
     if keys[pygame.K_LEFT] or keys[pygame.K_a]:
-        player_v_x -= 0.3
+        player_v_x -= 3
 
     player.x += player_v_x
 
@@ -122,6 +125,24 @@ while running:
 
             else:
                 falling_on = True
+
+
+        for tail in range (tail_size_max):
+            if tail >= tail_size:
+                pygame.draw.rect(screen, (255,255,0), land_shark [tail])
+                if land_shark [tail].colliderect(player) and falling >= 0:
+                    if keys[pygame.K_SPACE]:
+                        falling -= 3
+                    else:
+                        falling_on = False
+                        falling *= -bounce
+                        player_v_x *= 0.001
+                    break
+
+                else:
+                    falling_on = True
+
+                    
         if falling_on:
             falling += 0.01
         player.y += falling
