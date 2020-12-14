@@ -144,8 +144,15 @@ while running:
 
                 else:
                     falling_on = True
-
-                land_shark [tail].x += 1
+                    
+                if land_shark [tail].x >= enemy_hitbox.x - tail:
+                    land_shark [tail].x += 1
+                if land_shark [tail].x <= enemy_hitbox.x - tail:
+                    land_shark [tail].x -= 1
+                if land_shark [tail].y >= enemy_hitbox.y - tail:
+                    land_shark [tail].y += 1
+                if land_shark [tail].y <= enemy_hitbox.y - tail:
+                    land_shark [tail].y -= 1
 
 
             
