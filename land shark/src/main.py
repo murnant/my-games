@@ -21,6 +21,8 @@ class Enemy():
         pygame.draw.rect(screen, (153, 76, 0), self.hitbox)
 
 
+enemy_hitbox_v_x =0
+enemy_hitbox_v_y =0
 spawnning = True
 spawn_x = -10
 spawn_y = 400
@@ -74,23 +76,23 @@ while running:
     player.x += player_v_x
 
     if player.x >= enemy_hitbox.x:
-        enemy_hitbox.x += 1
+        enemy_hitbox_v_x += 1
 
     if player.x <= enemy_hitbox.x:
-        enemy_hitbox.x -= 1
+        enemy_hitbox_v_x -= 1
                 
     if player.y <= enemy_hitbox.y and not enemy_down:
-        enemy_hitbox.y -= 1
+        enemy_hitbox_v_y -= 1
 
     if player.y >= enemy_hitbox.y and not enemy_down:
-        enemy_hitbox.y += 1
+        enemy_hitbox_v_y += 1
     if enemy_down:
         if up_and_down_timer ==0:
             up_and_down_timer = 600
             enemy_down = False
         else:
             up_and_down_timer -= 1
-        enemy_hitbox.y += 1
+        enemy_hitbox_v_y += 1
     else:
         if up_and_down_timer ==0:
             land_shark.append(enemy_hitbox.copy())
@@ -98,8 +100,11 @@ while running:
             enemy_down = True
         else:
             up_and_down_timer -= 1
-        
 
+    enemy_hitbox_v_x *= 0.7
+    enemy_hitbox_v_y *= 0.7
+    enemy_hitbox.x += enemy_hitbox_v_x
+    enemy_hitbox.y += enemy_hitbox_v_y
 
     for i in range(10):
             
@@ -145,14 +150,17 @@ while running:
                 else:
                     falling_on = True
                     
-                if land_shark [tail].x >= enemy_hitbox.x - tail:
-                    land_shark [tail].x += 1
-                if land_shark [tail].x <= enemy_hitbox.x - tail:
-                    land_shark [tail].x -= 1
-                if land_shark [tail].y >= enemy_hitbox.y - tail:
-                    land_shark [tail].y += 1
-                if land_shark [tail].y <= enemy_hitbox.y - tail:
-                    land_shark [tail].y -= 1
+                    land_shark [tail].x += -enemy_hitbox_v_x /2
+                    land_shark [tail].y += -enemy_hitbox_v_y /2
+                    
+                #if land_shark [tail].x >= enemy_hitbox.x + tail:
+                    #land_shark [tail].x += 1
+                #if land_shark [tail].x <= enemy_hitbox.x - tail:
+                    #land_shark [tail].x -= 1
+                #if land_shark [tail].y >= enemy_hitbox.y - tail:
+                    #land_shark [tail].y += 1
+                #if land_shark [tail].y <= enemy_hitbox.y - tail:
+                    #land_shark [tail].y -= 1
 
 
             
