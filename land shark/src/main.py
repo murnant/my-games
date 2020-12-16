@@ -28,7 +28,7 @@ spawn_x = -10
 spawn_y = 400
 player = pygame.Rect(0, 100, 40, 40)
 player_v_x = 0
-bounce = 0.0001
+bounce = 0.01
 enemy_down = False
 up_and_down_timer = 600
 falling_on = True
@@ -44,7 +44,7 @@ while spawnning:
         spawnning = False
 falling = 0
 fall_stopper = pygame.Rect(0, 0,game_width , game_height)
-tail_size = 9
+tail_size = 99
 tail_size_max = 0
 land_shark = []
 # ***************** Loop Land Below *****************
@@ -153,14 +153,9 @@ while running:
                 land_shark [tail].x += -enemy_hitbox_v_x /2
                 land_shark [tail].y += -enemy_hitbox_v_y /2
                     
-                #if land_shark [tail].x >= enemy_hitbox.x + tail:
-                    #land_shark [tail].x += 1
-                #if land_shark [tail].x <= enemy_hitbox.x - tail:
-                    #land_shark [tail].x -= 1
-                #if land_shark [tail].y >= enemy_hitbox.y - tail:
-                    #land_shark [tail].y += 1
-                #if land_shark [tail].y <= enemy_hitbox.y - tail:
-                    #land_shark [tail].y -= 1
+                for enemy in enemies:
+                    if enemy.hitbox.colliderect(land_shark [tail]):
+                        enemies.remove(enemy)
 
 
             
