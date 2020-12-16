@@ -73,6 +73,8 @@ while running:
     if keys[pygame.K_LEFT] or keys[pygame.K_a]:
         player_v_x -= 3
 
+
+    player_v_x *= 0.7
     player.x += player_v_x
 
     if player.x >= enemy_hitbox.x:
@@ -125,7 +127,6 @@ while running:
                 else:
                     falling_on = False
                     falling *= -bounce
-                    player_v_x *= 0.001
                 break
 
             else:
@@ -144,7 +145,6 @@ while running:
                     else:
                         falling_on = False
                         falling *= -bounce
-                        player_v_x *= 0.001
                     break
 
                 else:
