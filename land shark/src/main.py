@@ -1,5 +1,5 @@
 import pygame
-import os
+#import os
 
 # Start the game
 pygame.init()
@@ -44,7 +44,7 @@ while spawnning:
         spawnning = False
 falling = 0
 fall_stopper = pygame.Rect(0, 0,game_width , game_height)
-tail_size = 99
+tail_size = 180
 tail_size_max = 0
 land_shark = []
 # ***************** Loop Land Below *****************
