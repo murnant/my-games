@@ -17,7 +17,7 @@ class Shell():
         self.v_y += 0.1
         self.hitbox.y += self.v_y
         self.hitbox.x += self.v_x
-        pygame.draw.rect(screen, (255, 255, 255), self.hitbox)
+        pygame.draw.rect(screen, (75, 75, 75), self.hitbox)
 
 
 class Ground_Tile():
@@ -29,6 +29,9 @@ class Ground_Tile():
 
     def update(self, screen):
         pygame.draw.rect(screen, (153, 76, 0), self.hitbox)
+                
+
+
 
 class Ground():
     def __init__(self,w, h, tile_size):
@@ -46,6 +49,11 @@ class Ground():
     def update(self, screen):
         for t in self.tiles:
             t.update(screen)
+            for s in shells:
+                if s.hitbox.colliderect(t.hitbox):
+                    self.tiles.remove(t)
+
+
 
 ground = Ground(1000,650,10)
 
