@@ -10,6 +10,8 @@ class Shell():
         self.y = y
         self.v_x = 1
         self.v_y = -1
+        self.pic = pygame.image.load("../assets/Untitled.png")
+        self.pic_small = pygame.transform.scale(self.pic, (w, h))
         self.hitbox = pygame.Rect(self.x, self.y, w, h)
         
 
@@ -17,7 +19,8 @@ class Shell():
         self.v_y += 0.1
         self.hitbox.y += self.v_y
         self.hitbox.x += self.v_x
-        pygame.draw.rect(screen, (75, 75, 75), self.hitbox)
+        #pygame.draw.rect(screen, (75, 75, 75), self.hitbox)
+        screen.blit(self.pic_small, (self.hitbox.x, self.hitbox.y))
 
 
 class Ground_Tile():
@@ -71,7 +74,7 @@ while running:
 
 
 
-    screen.fill((0,0,0))
+    screen.fill((100,100,255))
 
     ground.update(screen)
     if fire:
