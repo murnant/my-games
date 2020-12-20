@@ -12,6 +12,7 @@ class Shell():
         self.v_y = -1
         self.pic = pygame.image.load("../assets/Untitled.png")
         self.pic_small = pygame.transform.scale(self.pic, (w, h))
+        self.pic_small.set_colorkey((255,255,255))
         self.hitbox = pygame.Rect(self.x, self.y, w, h)
         
 
