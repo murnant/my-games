@@ -7,21 +7,33 @@ textinput = pygame_textinput.TextInput(text_color =(255,255,255))
 class Shell():
     def __init__(self, x, y, w, h):
         self.x = x
-        self.y = y
+        self.y = -h
+        self.des = y
+        self.blone_up = False
+        self.w = w
+        self.h = h
         self.v_x = 1
         self.v_y = -1
         self.pic = pygame.image.load("../assets/Untitled.png")
-        self.pic_small = pygame.transform.scale(self.pic, (w, h))
+        self.pic_small = pygame.transform.scale(self.pic, (self.w, self.h))
         self.pic_small.set_colorkey((255,255,255))
+        self.boom_pic = pygame.image.load("../assets/boom.jpg")
+        self.boom_pic_small = pygame.transform.scale(self.boom_pic, (self.w +100, self.h +100))
         self.hitbox = pygame.Rect(self.x, self.y, w, h)
         
 
     def update(self, screen):
-        self.v_y += 0.1
-        self.hitbox.y += self.v_y
-        self.hitbox.x += self.v_x
-        #pygame.draw.rect(screen, (75, 75, 75), self.hitbox)
-        screen.blit(self.pic_small, (self.hitbox.x, self.hitbox.y))
+        if self.blone_up:
+            screen.blit(self.boom_pic_small, (self.hitbox.x, self.hitbox.y))
+        else:
+            if self.hitbox.y < self.des:
+                self.v_y += 0.1
+                self.hitbox.y += self.v_y
+            else:
+                self.hitbox = pygame.Rect(self.hitbox.x -50, self.hitbox.y -50, self.w +100, self.w +100)
+                self.blone_up = True
+            
+            screen.blit(self.pic_small, (self.hitbox.x, self.hitbox.y))
 
 
 class Ground_Tile():
