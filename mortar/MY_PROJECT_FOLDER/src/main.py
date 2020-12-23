@@ -69,6 +69,8 @@ class Ground():
                 spawn_x2 += tile_size
             else:
                 spawn_y -= tile_size
+            if random.randint(1, 7) == 1:
+                spawn_x2 -= tile_size
         
         
 
@@ -81,7 +83,7 @@ class Ground():
 
 
 
-ground = Ground(1000,650,10)
+ground = Ground(1000,650,50)
 
 shells = []
 
