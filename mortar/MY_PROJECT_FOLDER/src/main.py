@@ -1,5 +1,6 @@
 import pygame
 import pygame_textinput
+import random
 clock = pygame.time.Clock()
 screen = pygame.display.set_mode ((1000, 650),0,32)
 textinput = pygame_textinput.TextInput(text_color =(255,255,255))
@@ -53,6 +54,8 @@ class Ground():
     def __init__(self,w, h, tile_size):
         spawn_x = -tile_size
         spawn_y = 400
+        spawn_x2 = random.randint(1, 300)
+        spawn_size = random.randint(1, 30)* tile_size + spawn_x2
         self.tiles =[]
         while spawn_y <= h:
             spawn_x += tile_size
@@ -60,6 +63,13 @@ class Ground():
                 spawn_x = 0
                 spawn_y += tile_size
             self.tiles.append(Ground_Tile(spawn_x, spawn_y, tile_size, tile_size))
+        while not spawn_x2 == spawn_size:
+            self.tiles.append(Ground_Tile(spawn_x2,spawn_y - tile_size, tile_size, tile_size))
+            if random.randint(1, 5) == 1:
+                spawn_x2 += tile_size
+            else:
+                spawn_y -= tile_size
+        
         
 
     def update(self, screen):
