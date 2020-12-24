@@ -56,7 +56,7 @@ class Ground():
     def __init__(self,w, h, tile_size):
         spawn_x = -tile_size
         spawn_y = 400
-        spawn_x2 = random.randint(1, 300)
+        spawn_x2 = random.randint(0, w - tile_size)
         spawn_size = random.randint(1, 30)* tile_size + spawn_x2
         self.tiles =[]
         while spawn_y <= h:
