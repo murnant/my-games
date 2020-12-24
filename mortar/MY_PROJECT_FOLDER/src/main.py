@@ -41,11 +41,13 @@ class Ground_Tile():
     def __init__(self, x, y, w, h):
         self.x = x
         self.y = y
+        self.pic = pygame.image.load("../assets/dert.png")
+        self.pic_small = pygame.transform.scale(self.pic, (w, h))
         self.hitbox = pygame.Rect(self.x, self.y, w, h)
         
 
     def update(self, screen):
-        pygame.draw.rect(screen, (153, 76, 0), self.hitbox)
+        screen.blit(self.pic_small, (self.hitbox.x, self.hitbox.y))
                 
 
 
