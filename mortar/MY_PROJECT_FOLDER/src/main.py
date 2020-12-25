@@ -89,6 +89,12 @@ ground = Ground(1000,650,50)
 
 shells = []
 
+ufo_pic = pygame.image.load("../assets/ufo.png")
+ufo_pic_small = pygame.transform.scale(ufo_pic, (150,50))
+ufo_pic_small.set_colorkey((255,255,255))
+ufo_x =0
+ufo_y =300
+
 running = True
 while running:
     events = pygame.event.get()
@@ -110,6 +116,8 @@ while running:
     for s in shells:
         s.update(screen)
 
+    screen.blit(ufo_pic_small, (ufo_x, ufo_y))
+    ufo_x += 1
 
 
     # Feed it with events every frame
