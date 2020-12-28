@@ -48,6 +48,11 @@ class Ground_Tile():
 
     def update(self, screen):
         screen.blit(self.pic_small, (self.hitbox.x, self.hitbox.y))
+        if self.hitbox.colliderect(enemy_hitbox):
+            if enemy_flip:
+                enemy_flip =False
+            else:
+                enemy_flip =True
                 
 
 
@@ -79,6 +84,7 @@ class Ground():
     def update(self, screen):
         for t in self.tiles:
             t.update(screen)
+                
             for s in shells:
                 if s.hitbox.colliderect(t.hitbox):
                     self.tiles.remove(t)
@@ -94,6 +100,13 @@ ufo_pic_small = pygame.transform.scale(ufo_pic, (150,50))
 ufo_pic_small.set_colorkey((255,255,255))
 ufo_x =0
 ufo_y =300
+
+
+enemy_pic = pygame.image.load("../assets/enemy.png")
+enemy_pic_small = pygame.transform.scale(enemy_pic, (50,100))
+enemy_pic_small.set_colorkey((255,255,255))
+enemy_flip =True
+enemy_hitbox = pygame.Rect(500, 299, 50, 100)
 
 running = True
 while running:
@@ -118,6 +131,12 @@ while running:
 
     screen.blit(ufo_pic_small, (ufo_x, ufo_y))
     ufo_x += 1
+    enemy_pic_Direction = pygame.transform.flip(enemy_pic_small, enemy_flip, False)
+    screen.blit(enemy_pic_Direction, (enemy_hitbox.x, enemy_hitbox.y))
+    if enemy_flip:
+        enemy_hitbox.x += 1
+    else:
+        enemy_hitbox.x -= 1
 
 
     # Feed it with events every frame
