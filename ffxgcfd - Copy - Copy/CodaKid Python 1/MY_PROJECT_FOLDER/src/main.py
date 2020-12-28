@@ -102,7 +102,7 @@ boom_player_hitbox = pygame.Rect(-80, -80, 80, 80)
 boom_pic = pygame.image.load("../assets/boom.png")
 boom_pic_small = pygame.transform.scale(boom_pic, (80, 80))
 boom_pic_small.set_colorkey((255,255,255))
-
+block_timer = 0
 background_pic = pygame.image.load("../assets/background.png")
 background_pic_small = pygame.transform.scale(background_pic, (game_width, game_height))
 
@@ -134,7 +134,10 @@ while living:
 
         mouse_x, mouse_y = pygame.mouse.get_pos()
 
-        player_hitbox.x = mouse_x - 50
+        if player_hitbox.x >= mouse_x -50:
+            player_hitbox.x -= 9
+        if player_hitbox.x <= mouse_x -50:
+            player_hitbox.x += 9
 
 
         spon_timer -= 1
@@ -144,10 +147,10 @@ while living:
         
         keys = pygame.key.get_pressed()
 
-
-        if pygame.mouse.get_pressed()[0]:
-            mouse_x, mouse_y = pygame.mouse.get_pos()
+        block_timer -= 1
+        if pygame.mouse.get_pressed()[0] and block_timer <= 0:
             blocks.append(Block(mouse_x, mouse_y))
+            block_timer = 800
         
         for fire in Fires:
             fire.update(screen)
@@ -174,7 +177,7 @@ while living:
             if enemy.hitbox.y <= -enemy.size:
                 Enemys.remove(enemy)
             if enemy.hp <= 0:
-                score += 10
+                score += enemy.size /5
                 Enemys.remove(enemy)
             if enemy.hitbox.colliderect(player_hitbox):
                 Enemys.remove(enemy)
