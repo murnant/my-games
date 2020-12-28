@@ -157,7 +157,7 @@ while living:
 
 
         if boom and keys[pygame.K_SPACE]:
-            Fires.append(Fire(mouse_x -37.5, 75))
+            Fires.append(Fire(player_hitbox.x +22.5, 75))
             boom = False
             timer = 21
         if timer >= 1 and not timer == 1:
