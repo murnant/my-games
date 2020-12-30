@@ -22,8 +22,7 @@ while True:
 
     mouse_x, mouse_y = pygame.mouse.get_pos()
     keys = pygame.key.get_pressed()
-    if keys[pygame.K_SPACE]:
-        started = True
+
     if pygame.mouse.get_pressed()[0]:
         walls.append(pygame.Rect(mouse_x, mouse_y,10,10))
     for w in walls:
