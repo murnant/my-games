@@ -11,10 +11,10 @@ running = True
 #maze_pic = pygame.image.load("../assets/maze.png")
 #maze_pic_small = pygame.transform.scale(maze_pic, (5000, 2500))
 walls =[]
-while running:
+while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
+            running = True
     screen.fill((100,100,100))
 
 
@@ -48,6 +48,7 @@ while running:
                 
         pygame.draw.rect(screen, (255, 0, 0), w)
 
-    pygame.draw.rect(screen, (255, 255, 255), player_hitbox)
+    if running:
+        pygame.draw.rect(screen, (255, 255, 255), player_hitbox)
 
     pygame.display.update() # finally pushes changes to the screen
