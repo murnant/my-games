@@ -22,9 +22,13 @@ while True:
 
     mouse_x, mouse_y = pygame.mouse.get_pos()
     keys = pygame.key.get_pressed()
+    if keys[pygame.K_f]:
+        zom += 0.1
+    if keys[pygame.K_j]:
+        zom -= 0.1
 
     if pygame.mouse.get_pressed()[0]:
-        walls.append(pygame.Rect(mouse_x, mouse_y,10,10))
+        walls.append(pygame.Rect(mouse_x, mouse_y,10 +zom,10 +zom))
     for w in walls:
         if keys[pygame.K_RIGHT]:
             w.x -= 1
@@ -36,10 +40,8 @@ while True:
             w.y -= 1
 
 
-        w.width += zom
-        w.height += zom
-        w.x += zom
-        w.y += zom
+        w.width = 10 +zom
+        w.height = 10 +zom
 
                 
         pygame.draw.rect(screen, (255, 0, 0), w)
