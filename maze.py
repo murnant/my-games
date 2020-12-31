@@ -5,9 +5,10 @@ clock = pygame.time.Clock()
 screen = pygame.display.set_mode ((1000, 500),0,32)
 
 pygame.init()
-player_hitbox = pygame.Rect(100, 100,10,10)
+player_hitbox = pygame.Rect(500, 250,10,10)
 zom = 50
 running = True
+start = False
 #maze_pic = pygame.image.load("../assets/maze.png")
 #maze_pic_small = pygame.transform.scale(maze_pic, (5000, 2500))
 walls =[]
@@ -24,12 +25,16 @@ while True:
     mouse_x, mouse_y = pygame.mouse.get_pos()
     keys = pygame.key.get_pressed()
     if keys[pygame.K_f]:
-        zom += 0.1
+        zom += 1
     if keys[pygame.K_j]:
-        zom -= 0.1
+        zom -= 1
 
-    if pygame.mouse.get_pressed()[0]:
-        walls.append(pygame.Rect(mouse_x, mouse_y,10 +zom,10 +zom))
+    if pygame.mouse.get_pressed()[0] and not start:
+        if keys[pygame.K_SPACE]:
+            player_hitbox = pygame.Rect(mouse_x, mouse_y,10,10)
+            start = True
+        else:
+            walls.append(pygame.Rect(mouse_x, mouse_y,10 +zom,10 +zom))
     for w in walls:
         if keys[pygame.K_RIGHT]:
             w.x -= 3
@@ -48,7 +53,7 @@ while True:
                 
         pygame.draw.rect(screen, (255, 0, 0), w)
 
-    if running:
+    if running and start:
         pygame.draw.rect(screen, (255, 255, 255), player_hitbox)
 
     pygame.display.update() # finally pushes changes to the screen
