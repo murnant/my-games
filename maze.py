@@ -10,6 +10,9 @@ class Wall():
         self.start_x = 0
         self.start_y = 0
 
+    def to_string(self):
+        return str(self.hitbox.x) +","+ str(self.hitbox.y) +","+ str(self.hitbox.width)
+
 pygame.init()
 player_hitbox = pygame.Rect(500, 250,10,10)
 zom = 50
@@ -17,7 +20,14 @@ running = True
 start = False
 #maze_pic = pygame.image.load("../assets/maze.png")
 #maze_pic_small = pygame.transform.scale(maze_pic, (5000, 2500))
-walls =[]
+f = open("walls", "r")
+walls = []
+walls_string = (f.read()).split("*")
+for s in walls_string:
+    if len(s.split(",")) == 3:
+        walls.append(Wall(int(s.split(",")[0]),int(s.split(",")[1]),int(s.split(",")[2])))
+
+f.close()
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -71,5 +81,17 @@ while True:
 
     if start:
         pygame.draw.rect(screen, (255, 255, 255), player_hitbox)
+    else:
+        f = open("walls", "w")
+        f.write("")
+        f.close()
+        for w in walls:
+            f = open("walls", "a")
+            f.write(str(w.to_string() + "*"))
+            f.close()
+
+
+
+
 
     pygame.display.update() # finally pushes changes to the screen
