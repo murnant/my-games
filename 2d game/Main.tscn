@@ -9,7 +9,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 480, 0, 0, 0, 0, 0, 480, 720, 0, 0, 0, 0, 0, 720, 0, 0, 0, 0, 0, 0 )
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 480, 0, 0, 0, 0, 0, 766, 411.38, 0, 0, 0, 0, 480, 720, 0, 0, 0, 0, 0, 720, 0, 0, 0, 0, -116, 351.38, 0, 0, 0, 0, 0, 0 )
 }
 
 [node name="Main" type="Node"]
@@ -17,8 +17,14 @@ script = ExtResource( 1 )
 mob_scene = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = -0.233
+anchor_top = -0.061
+anchor_right = 1.373
+anchor_bottom = 1.111
+margin_left = -78.16
+margin_top = 87.92
+margin_right = 87.96
+margin_bottom = -156.92
 color = Color( 0.219608, 0.372549, 0.380392, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -39,6 +45,7 @@ one_shot = true
 position = Vector2( 240, 450 )
 
 [node name="MobPath" type="Path2D" parent="."]
+position = Vector2( -31, -11 )
 curve = SubResource( 1 )
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]

@@ -35,8 +35,8 @@ while True:
                 for w in walls:
                     w.hitbox.x = w.start_x
                     w.hitbox.y = w.start_y
-                else:
-                    running = True
+            else:
+                running = True
     screen.fill((100,100,100))
 
 
@@ -81,7 +81,7 @@ while True:
 
     if start:
         pygame.draw.rect(screen, (255, 255, 255), player_hitbox)
-    else:
+    elif keys[pygame.K_s]:
         f = open("walls", "w")
         f.write("")
         f.close()
