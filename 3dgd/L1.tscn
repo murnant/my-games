@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://crate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://L1.gd" type="Script" id=2]
+[ext_resource path="res://block.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player.tscn" type="PackedScene" id=5]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.0980392, 0.709804, 0.25098, 1 )
+
+[sub_resource type="PlaneMesh" id=2]
+material = SubResource( 1 )
+size = Vector2( 100, 100 )
+
+[sub_resource type="ConvexPolygonShape" id=3]
+points = PoolVector3Array( -50.2732, 0.273224, -50.2732, -50.2732, 0.273224, 50.2732, 50.2732, 0.273224, -50.2732, 50.2732, 0.273224, 50.2732 )
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="ground" type="StaticBody" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="ground"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="ground"]
+shape = SubResource( 3 )
+
+[node name="crate" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.48301, 0.435775, -0.535735 )
+
+[node name="crate2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38754, 1.74122, -0.274329 )
+
+[node name="crate3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0048, 2.61913, -0.290931 )
+
+[node name="camerahub" type="Spatial" parent="."]
+transform = Transform( 0.955485, 0, -0.295041, 0, 1, 0, 0.295041, 0, 0.955485, 0, 0, 0 )
+
+[node name="Camera" type="Camera" parent="camerahub"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5169, 3.19439, 9.46466 )
+fov = 107.139
+
+[node name="block" parent="." instance=ExtResource( 3 )]
+
+[node name="block2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+
+[node name="block3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2 )
+
+[node name="block4" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2 )
+
+[node name="block5" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1 )
+
+[node name="block6" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+
+[node name="block7" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
+
+[node name="block8" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
+
+[node name="block9" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+
+[node name="player" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20431, 16.7759, 0.301445 )
+
+[node name="crate4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.56834, 2.64684, 3.09497 )
+
+[node name="crate5" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7318, 2.03455, 6.66598 )
+
+[node name="crate6" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.687262, 1.97456, -13.9801 )
+
+[node name="sun" type="Spatial" parent="."]
+transform = Transform( 0.999291, 0.0376553, 0, -0.0376504, 0.999159, -0.0162134, -0.000610521, 0.0162019, 0.999869, 0, 0, 0 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="sun"]
+transform = Transform( -0.224387, 0.974417, -0.0127182, -0.938442, -0.212548, 0.272306, 0.262636, 0.0730371, 0.962127, 0, 4.96226, 7.58852 )
+light_color = Color( 0.254902, 0.454902, 0.611765, 1 )
+shadow_enabled = true
+
+[node name="block10" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.43201, -0.781857 )
+
+[node name="block11" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )

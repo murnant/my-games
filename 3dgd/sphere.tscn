@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 0.716096, -0.514491, -0.471705, 0.583484, 0.812124, 0, 0.383083, -0.275232, 0.881757, -0.856623, 0.554167, 0 )
+layers = 2147483649
+material_override = SubResource( 1 )
+texture = ExtResource( 1 )
+
+[node name="CSGSphere" type="CSGSphere" parent="Sprite3D"]
+transform = Transform( 0.999999, -2.98023e-08, 2.98023e-08, 3.20375e-07, 1, -4.47035e-08, -1.49012e-07, 1.49012e-08, 1, 0.856464, -1.29051, -0.373376 )
+
+[node name="SpotLight" type="SpotLight" parent="Sprite3D/CSGSphere"]
+transform = Transform( 0.94497, -0.149529, -0.019686, 0.0201375, 0.913562, 0.0142715, 0.0184051, -0.0158884, 0.999704, 0, 0, 0 )
+light_color = Color( 0.913725, 0.478431, 0.0705882, 1 )
+light_energy = 0.0
+light_indirect_energy = 0.0
+shadow_color = Color( 1, 0.494118, 0, 1 )
+spot_range = 27.3889
+spot_angle = 39.6658
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72847, 1.58866, 4.32243 )
+fov = 73.5733
