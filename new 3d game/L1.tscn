@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://block.tscn" type="PackedScene" id=1]
+[ext_resource path="res://h2.tscn" type="PackedScene" id=2]
+
+[sub_resource type="PlaneMesh" id=1]
+
+[sub_resource type="ConvexPolygonShape" id=2]
+points = PoolVector3Array( -1.00542, 0.00546448, -1.00546, -1.00542, 0.00546448, 1.00546, 1.00546, 0.00546448, -1.00546, 1.00546, 0.00546448, 1.00546 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="block" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4439, 5.16043, -5.65681 )
+
+[node name="block2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.91865, 4.89061, 0 )
+
+[node name="block3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.935191, 0, -0.354144, 0, 1, 0, 0.354144, 0, 0.935191, 0, 5.62716, 13.0765 )
+
+[node name="block4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2622, 4.95646, 0 )
+
+[node name="block5" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.91449, 13.2173, 4.81866 )
+
+[node name="block6" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.87441, 4.6113, -9.29754 )
+
+[node name="h" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.65606, 13.1444 )
