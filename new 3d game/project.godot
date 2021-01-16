@@ -17,7 +17,13 @@ _global_script_class_icons={
 
 config/name="New 3d Game"
 run/main_scene="res://L1.tscn"
+run/low_processor_mode_sleep_usec=6700
+boot_splash/image="res://Untitled.png"
 config/icon="res://Untitled.png"
+
+[editor]
+
+search_in_file_extensions=PoolStringArray( "gd", "shader", "", "", "" )
 
 [input]
 
