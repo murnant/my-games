@@ -18,3 +18,7 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 shape = SubResource( 3 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+light_color = Color( 1, 0.384314, 0.0352941, 1 )
+shadow_enabled = true
