@@ -1,6 +1,8 @@
 extends KinematicBody
 var velocity = Vector3()
 func _physics_process(delta):
-	#velocity = global_transform.basis.z / global_transform.basis.z * 9
-	velocity += -transform.basis.z *0.000000000000000000000000000000000000000001
+	#velocity = move_and_slide(velocity, Vector3.UP)
+	velocity = Vector3()
+	velocity += global_transform.basis.y * 6.0
+	velocity += global_transform.basis.x * 6.0
 	move_and_slide(velocity)
