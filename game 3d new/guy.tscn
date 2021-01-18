@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://bullet.gd" type="Script" id=1]
+[ext_resource path="res://KinematicBody.gd" type="Script" id=1]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.219608, 0.0196078, 0.0196078, 1 )
