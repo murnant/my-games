@@ -1,4 +1,5 @@
 extends KinematicBody
+var velocity = Vector3()
 func _process(delta):
 	if Input.is_action_pressed('right'):
 		rotate_y(-0.01)
@@ -8,3 +9,6 @@ func _process(delta):
 		$t.rotate_x(0.01)
 	if Input.is_action_pressed('down'):
 		$t.rotate_x(-0.01)
+	if Input.is_action_pressed("f_or_j"):
+		velocity = -global_transform.basis.z * 5
+		move_and_slide(velocity)
