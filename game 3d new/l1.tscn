@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://thing.tscn" type="PackedScene" id=2]
 [ext_resource path="res://guy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://cube.tscn" type="PackedScene" id=4]
 [ext_resource path="res://H.tscn" type="PackedScene" id=5]
+[ext_resource path="res://blobby.tscn" type="PackedScene" id=6]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.419608, 0.345098, 0.345098, 1 )
@@ -56,3 +57,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 9, 0 )
 transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 31, 84 )
 light_color = Color( 0.835294, 0.807843, 0, 1 )
 shadow_enabled = true
+
+[node name="blobby" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5, 0 )
