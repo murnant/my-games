@@ -3,7 +3,7 @@
 [ext_resource path="res://bullet.gd" type="Script" id=1]
 
 [sub_resource type="SpatialMaterial" id=1]
-albedo_color = Color( 1, 0.65098, 0.376471, 1 )
+albedo_color = Color( 1, 0, 0, 0.819608 )
 
 [sub_resource type="SphereMesh" id=2]
 material = SubResource( 1 )
@@ -21,3 +21,7 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0, 0, 0 )
 shape = SubResource( 3 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+light_color = Color( 1, 0, 0, 1 )
+omni_range = 3.0

@@ -31,6 +31,9 @@ albedo_color = Color( 0, 0, 1, 1 )
 material = SubResource( 9 )
 
 [node name="guy" type="RigidBody"]
+mass = 0.00102041
+sleeping = true
+can_sleep = false
 
 [node name="guy" type="KinematicBody" parent="."]
 script = ExtResource( 1 )
