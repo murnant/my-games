@@ -4,8 +4,8 @@
 [ext_resource path="res://thing.tscn" type="PackedScene" id=2]
 [ext_resource path="res://guy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://cube.tscn" type="PackedScene" id=4]
-[ext_resource path="res://H.tscn" type="PackedScene" id=5]
 [ext_resource path="res://blobby.tscn" type="PackedScene" id=6]
+[ext_resource path="res://block_wall.tscn" type="PackedScene" id=7]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.419608, 0.345098, 0.345098, 1 )
@@ -44,9 +44,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 9, 7 )
 [node name="blub" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 6, 0 )
 
-[node name="H" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19, 33 )
-
 [node name="blob" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 9, 0 )
 
@@ -54,9 +51,37 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 9, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 9, 0 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 31, 84 )
+transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 7, 31, 99 )
 light_color = Color( 0.835294, 0.807843, 0, 1 )
+light_energy = 10.15
 shadow_enabled = true
 
 [node name="blobby" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5, 0 )
+
+[node name="block_wall" parent="." instance=ExtResource( 7 )]
+transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 1, 15, 11, 28 )
+
+[node name="block_wall2" parent="." instance=ExtResource( 7 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 1, -25, 11, 28 )
+
+[node name="block_wall3" parent="." instance=ExtResource( 7 )]
+transform = Transform( -7.07107, 0, 0.707107, 0, 1, 0, -7.07107, 0, -0.707107, -25, 11, 37 )
+
+[node name="block_wall4" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 20, 15, 11, 49 )
+
+[node name="block_wall5" parent="." instance=ExtResource( 7 )]
+transform = Transform( 35, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 99 )
+
+[node name="block_wall6" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 35, 34, 11, 64 )
+
+[node name="block_wall7" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 35, -33, 11, 64 )
+
+[node name="block_wall8" parent="." instance=ExtResource( 7 )]
+transform = Transform( 24.1481, 0, -0.258819, 0, 1, 0, 6.47048, 0, 0.965926, 9, 11, 77 )
+
+[node name="block_wall9" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 29, -5, 11, 63 )
