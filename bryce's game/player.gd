@@ -11,4 +11,5 @@ func _process(delta):
 		$t.rotate_x(-0.01)
 	if Input.is_action_pressed("f_or_j"):
 		velocity = -global_transform.basis.z * 7
+		velocity = -$t.global_transform.basis.z * 7
 		move_and_slide(velocity)
