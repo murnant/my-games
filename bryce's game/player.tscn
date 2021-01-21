@@ -34,14 +34,16 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="t"]
 shape = SubResource( 3 )
 
-[node name="MeshInstance2" type="MeshInstance" parent="t"]
+[node name="Position3D" type="Position3D" parent="t"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2.14358 )
+
+[node name="StaticBody" type="StaticBody" parent="t"]
+
+[node name="MeshInstance" type="MeshInstance" parent="t/StaticBody"]
 transform = Transform( 0.1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, 0, -1, -1 )
 mesh = SubResource( 5 )
 material/0 = null
 
-[node name="CollisionShape2" type="CollisionShape" parent="t"]
+[node name="CollisionShape" type="CollisionShape" parent="t/StaticBody"]
 transform = Transform( 0.1, 0, 0, 0, -4.37114e-08, 0.1, 0, -1, -4.37114e-09, 0, -1, -1 )
 shape = SubResource( 6 )
-
-[node name="Position3D" type="Position3D" parent="t"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2.14358 )

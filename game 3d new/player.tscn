@@ -43,7 +43,7 @@ material = SubResource( 9 )
 [node name="player" type="KinematicBody"]
 script = ExtResource( 2 )
 
-[node name="t" type="StaticBody" parent="."]
+[node name="t" type="RigidBody" parent="."]
 script = ExtResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="t"]
