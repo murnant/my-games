@@ -1,12 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://space_ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://wall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://player.tscn" type="PackedScene" id=3]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="space_ball" parent="." instance=ExtResource( 1 )]
-position = Vector2( 194, -6 )
+position = Vector2( 267, -389 )
 
 [node name="wall" parent="." instance=ExtResource( 2 )]
 position = Vector2( 202, 184 )
@@ -19,3 +20,15 @@ position = Vector2( 314, 310 )
 
 [node name="wall4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 502, 350 )
+
+[node name="wall5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 433, 470 )
+
+[node name="wall6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 255, 444 )
+
+[node name="wall7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 321, 540 )
+
+[node name="player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 378, 639 )
