@@ -20,12 +20,12 @@ func get_input():
 		if slash_timer <= 0:
 			#slash = false
 			if slash_timer >= -73:
-				rotate(-0.01)
+				rotate(-0.02)
 			else:
 				slash = false
 				slash_timer = 75
 		else:
-			rotate(0.01)
+			rotate(0.02)
 func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity)
