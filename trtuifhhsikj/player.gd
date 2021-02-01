@@ -3,6 +3,7 @@ var velocity = Vector2()
 export var speed = 100
 var slash = false
 var slash_timer = 75
+var slash_cooldown = 0
 func get_input():
 	velocity = Vector2()
 	if Input.is_action_pressed('right'):
@@ -13,8 +14,12 @@ func get_input():
 		velocity.y = speed
 	if Input.is_action_pressed('up'):
 		velocity.y = -speed
+		
+	#slashing code
+	slash_cooldown -= 1
 	if Input.is_action_pressed("space"):
-		slash = true
+		if slash_cooldown <= 0:
+			slash = true
 	if slash:
 		slash_timer -= 1
 		if slash_timer <= 0:
@@ -24,6 +29,7 @@ func get_input():
 			else:
 				slash = false
 				slash_timer = 75
+				slash_cooldown = 100
 		else:
 			rotate(0.02)
 func _physics_process(delta):
@@ -32,3 +38,5 @@ func _physics_process(delta):
 func _on_Area2D_body_entered(b):
 	if slash:
 		b.Break()
+	else:
+		queue_free()
