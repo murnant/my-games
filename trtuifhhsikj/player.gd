@@ -7,7 +7,7 @@ var slash_cooldown = 0
 var slash_right = true
 func get_input():
 	velocity = Vector2()
-	velocity.y += 45
+	velocity.y += 100
 	if not slash:
 		if Input.is_action_pressed('right'):
 			velocity.x = speed
