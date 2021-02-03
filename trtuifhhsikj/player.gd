@@ -11,9 +11,11 @@ func get_input():
 		if Input.is_action_pressed('right'):
 			velocity.x = speed
 			slash_right = true
+			$Sprite2.hide()
 		if Input.is_action_pressed('left'):
 			velocity.x = -speed
 			slash_right = false
+			$Sprite2.show()
 		if Input.is_action_pressed('down'):
 			velocity.y = speed
 		if Input.is_action_pressed('up'):
