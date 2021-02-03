@@ -17,7 +17,8 @@ _global_script_class_icons={
 
 config/name="new-game"
 run/main_scene="res://l1.tscn"
-config/icon="res://icon.png"
+boot_splash/image="res://Untitled.png"
+config/icon="res://Untitled.png"
 
 [input]
 
