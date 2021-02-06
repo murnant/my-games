@@ -19,7 +19,7 @@ func get_input():
 			$Sprite2.show()
 		
 	#slashing code
-	if Input.is_action_pressed("space"):
+	if Input.is_action_pressed("f"):
 		if slash_cooldown <= 0:
 			slash = true
 	slash_cooldown -= 1
@@ -61,10 +61,11 @@ func _on_Area2D_body_entered(b):
 		queue_free()
 		
 		
-func _on_jump_body_entered(b):
+#func _on_jump_body_entered(b):
 	#if Input.is_action_pressed('up'):
-	velocity.y = -5000
-	velocity = move_and_slide(velocity)
+	#if not slash:
+		#velocity.y = -100
+		#velocity = move_and_slide(velocity)
 	
 	
 	

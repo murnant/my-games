@@ -9,11 +9,10 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 53, 87 )
 
+[sub_resource type="RectangleShape2D" id=3]
+
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 89.125 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 55.372, 79.125 )
 
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -34,13 +33,23 @@ texture = ExtResource( 3 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
-[node name="gun" type="Node2D" parent="."]
+[node name="gun" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource( 4 )
 
 [node name="gun" type="Sprite" parent="gun"]
 position = Vector2( 150, 0 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 5 )
+
+[node name="Position2D" type="Position2D" parent="gun"]
+position = Vector2( 210, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gun"]
+position = Vector2( 150, 0 )
+scale = Vector2( 5.2, 2 )
+shape = SubResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -49,13 +58,4 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2( 5.55, 1 )
 shape = SubResource( 2 )
-
-[node name="jump" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="jump"]
-shape = SubResource( 3 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="jump" to="." method="_on_jump_body_entered"]
-[connection signal="body_exited" from="jump" to="." method="_on_jump_body_exited"]
