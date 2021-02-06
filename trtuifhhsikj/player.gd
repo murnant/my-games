@@ -17,8 +17,6 @@ func get_input():
 			velocity.x = -speed
 			slash_right = false
 			$Sprite2.show()
-		if Input.is_action_pressed('down'):
-			velocity.y = speed
 		
 	#slashing code
 	if Input.is_action_pressed("space"):
