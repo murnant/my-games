@@ -7,7 +7,7 @@ var slash_cooldown = 0
 var slash_right = true
 func get_input():
 	velocity = Vector2()
-	velocity.y += 75
+	velocity.y += 200
 	if not slash:
 		if Input.is_action_pressed('right'):
 			velocity.x = speed
@@ -17,6 +17,8 @@ func get_input():
 			velocity.x = -speed
 			slash_right = false
 			$Sprite2.show()
+		if Input.is_action_pressed('jump'):
+			velocity.y -= 500
 		
 	#slashing code
 	if Input.is_action_pressed("f"):

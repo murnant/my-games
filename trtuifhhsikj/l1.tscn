@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemy_sponer.tscn" type="PackedScene" id=2]
-[ext_resource path="res://backgrownd.png" type="Texture" id=3]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -21,7 +20,7 @@ extents = Vector2( 996.75, 52.2751 )
 position = Vector2( 412, 539 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 290, -37 )
+position = Vector2( 318, -45 )
 collision_mask = 2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -58,9 +57,3 @@ shape = SubResource( 6 )
 
 [node name="enemy_sponer" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1068, -132 )
-
-[node name="backgrownd" type="Sprite" parent="."]
-show_behind_parent = true
-position = Vector2( 842, -228 )
-scale = Vector2( 6.20743, 4.32717 )
-texture = ExtResource( 3 )
