@@ -16,32 +16,46 @@ class P(object):
         self.x = x
         self.y = y
 
+    def __str__():
+        return "(" + self.x + "," + self.y + ")"
+
 
 class Snake():
     def __init__(self, x, y):
         self.x = x
         self.y = y
         self.hitbox = pygame.Rect(self.x, self.y, 50, 50)
-        self.tail = [P(x,y),P(x +47,y),P(x +47,y +47)]
+        self.tail = [P(x,y),P(x+1,y),P(x +1,y +1)]
         
 
-    def update(self, screen,x,y):
-        #for t in self.tail:
-            #t.x += x
-            #t.y += y
-        self.x += x
-        self.y += y
-        self.tail.append(P(self.x,self.y))
-        self.hitbox = pygame.Rect(self.x, self.y, 50, 50)
-        pygame.draw.rect(screen, (153, 76, 0), self.hitbox)
+    def update(self, screen,x,y,food):
 
+        
+        
+        if not x == 0 or not y == 0:
+            self.x += x
+            self.y += y
+            self.tail.append(P(self.x,self.y))
+            print(self.x,self.y)
+        # eat food
+        for f in food:
+            if f.x == self.x and f.y == self.y:
+                # remove food
+                food.remove(f)
+                # don't remove end of tail (grow)
+            elif not x == 0 or not y == 0:
+                # delete end of tail
+                self.tail.pop(0)     #pop() opposite of append. pop(0) removes the first element
+                
 
     def draw(self,screen):
         for t in self.tail:
-            pygame.draw.rect(screen, (255, 255, 255), pygame.Rect(t.x,t.y,47,47))
+            pygame.draw.rect(screen, (255, 255, 255), pygame.Rect(t.x *47,t.y *47,47,47))
 
 
-player = Snake(50,50)
+player = Snake(5,5)
+
+food = [P(2,2),P(5,5)]
 
 # ***************** Loop Land Below *****************
 # Everything under 'while running' will be repeated over and over again
@@ -56,24 +70,31 @@ while running:
     keys = pygame.key.get_pressed()
 
 
-    player.update(screen,v_x,v_y)
+    for f in food:
+        pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(f.x *47,f.y *47,47,47))
+
+    player.update(screen,v_x,v_y, food)
     player.draw(screen)
+
     v_x = 0
     v_y = 0
 
     if keys[pygame.K_RIGHT] or keys[pygame.K_d]:
-        v_x = 47
+        v_x = 1
 
     if keys[pygame.K_LEFT] or keys[pygame.K_a]:
-        v_x = -47
-    if keys[pygame.K_UP] or keys[pygame.K_w]:
-        v_y = -47
+        v_x = -1
+    if keys[pygame.K_UP] or keys[pygame.K_w]: 
+        v_y = -1
 
     if keys[pygame.K_DOWN] or keys[pygame.K_s]:
-        v_y = 47
+        v_y = 1
 
 
 
     pygame.display.update()
     clock.tick(5)
     pygame.display.set_caption("MY GAME fps: " + str(clock.get_fps()))
+
+
+
