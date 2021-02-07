@@ -26,9 +26,13 @@ class Snake():
         
 
     def update(self, screen,x,y):
-        for t in self.tail:
-            t.x += x
-            t.y += y
+        #for t in self.tail:
+            #t.x += x
+            #t.y += y
+        self.x += x
+        self.y += y
+        self.tail.append(P(self.x,self.y))
+        self.hitbox = pygame.Rect(self.x, self.y, 50, 50)
         pygame.draw.rect(screen, (153, 76, 0), self.hitbox)
 
 
@@ -54,13 +58,19 @@ while running:
 
     player.update(screen,v_x,v_y)
     player.draw(screen)
-
+    v_x = 0
+    v_y = 0
 
     if keys[pygame.K_RIGHT] or keys[pygame.K_d]:
         v_x = 47
 
     if keys[pygame.K_LEFT] or keys[pygame.K_a]:
         v_x = -47
+    if keys[pygame.K_UP] or keys[pygame.K_w]:
+        v_y = -47
+
+    if keys[pygame.K_DOWN] or keys[pygame.K_s]:
+        v_y = 47
 
 
 
