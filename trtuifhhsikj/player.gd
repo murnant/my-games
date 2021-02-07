@@ -5,6 +5,7 @@ var slash = false
 var slash_timer = 75
 var slash_cooldown = 0
 var slash_right = true
+var jump_timer = 0
 func get_input():
 	velocity = Vector2()
 	velocity.y += 200
@@ -17,9 +18,11 @@ func get_input():
 			velocity.x = -speed
 			slash_right = false
 			$Sprite2.show()
-		if Input.is_action_pressed('jump'):
-			velocity.y -= 500
-		
+		if Input.is_action_pressed('jump') and jump_timer >=-100:
+			jump_timer -= 100
+			velocity.y = -1000
+		else:
+			jump_timer += 5
 	#slashing code
 	if Input.is_action_pressed("f"):
 		if slash_cooldown <= 0:
