@@ -29,23 +29,17 @@ class Snake():
         
 
     def update(self, screen,x,y,food):
-
-        
-        
-        if not x == 0 or not y == 0:
-            self.x += x
-            self.y += y
-            self.tail.append(P(self.x,self.y))
-            print(self.x,self.y)
+        self.tail.append(P(self.x,self.y))
+        self.x += x
+        self.y += y
         # eat food
         for f in food:
             if f.x == self.x and f.y == self.y:
                 # remove food
+                self.tail.append(P(self.x,self.y))
                 food.remove(f)
                 # don't remove end of tail (grow)
-            elif not x == 0 or not y == 0:
-                # delete end of tail
-                self.tail.pop(0)     #pop() opposite of append. pop(0) removes the first element
+        self.tail.pop(0)     #pop() opposite of append. pop(0) removes the first element
                 
 
     def draw(self,screen):
