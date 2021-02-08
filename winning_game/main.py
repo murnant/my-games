@@ -16,8 +16,8 @@ class P(object):
         self.x = x
         self.y = y
 
-    def __str__():
-        return "(" + self.x + "," + self.y + ")"
+    def __str__(self):
+        return "P(" + str(self.x) + "," + str(self.y) + ")"
 
 
 class Snake():
@@ -40,6 +40,11 @@ class Snake():
                 food.remove(f)
                 # don't remove end of tail (grow)
         self.tail.pop(0)     #pop() opposite of append. pop(0) removes the first element
+        
+        # debug
+        print("Start")
+        for t in self.tail:
+            print(t)
                 
 
     def draw(self,screen):
@@ -87,7 +92,7 @@ while running:
 
 
     pygame.display.update()
-    clock.tick(5)
+    clock.tick(1)
     pygame.display.set_caption("MY GAME fps: " + str(clock.get_fps()))
 
 
