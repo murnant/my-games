@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://canin.tscn" type="PackedScene" id=2]
@@ -25,6 +25,18 @@ albedo_color = Color( 0.372549, 0.105882, 0.105882, 1 )
 
 [sub_resource type="CubeMesh" id=8]
 material = SubResource( 7 )
+
+[sub_resource type="BoxShape" id=9]
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 0.372549, 0.105882, 0.105882, 1 )
+
+[sub_resource type="PrismMesh" id=11]
+material = SubResource( 10 )
+left_to_right = 1.0
+
+[sub_resource type="ConvexPolygonShape" id=12]
+points = PoolVector3Array( -1.01587, -1.01587, -1.01587, -1.01587, -1.01587, 1.01587, -1.01587, -0.952232, -1.01587, -1.01587, -0.952232, 1.01587, 0.952202, 1.01587, -1.01587, 0.952202, 1.01587, 1.01587, 0.999969, -1, -1, 0.999969, -1, 1, 1.01584, 1.01587, -1.01587, 1.01584, 1.01587, 1.01587 )
 
 [node name="ship" type="KinematicBody"]
 
@@ -60,8 +72,21 @@ transform = Transform( 20, 0, 0, 0, 5, 0, 0, 0, 7, 0, 6, 18 )
 mesh = SubResource( 8 )
 material/0 = null
 
+[node name="CollisionShape3" type="CollisionShape" parent="."]
+transform = Transform( 20, 0, 0, 0, 5, 0, 0, 0, 7, 0, 6, 18 )
+shape = SubResource( 9 )
+
 [node name="canin" parent="." instance=ExtResource( 2 )]
 transform = Transform( -0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 14, 2, 0 )
 
 [node name="canin2" parent="." instance=ExtResource( 2 )]
 transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -16, 2, -7 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="."]
+transform = Transform( 3.77489e-07, 0, -2, 0, 5, 0, 5, 0, 1.50996e-07, -15, 6, 6 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="CollisionShape4" type="CollisionShape" parent="."]
+transform = Transform( 3.77489e-07, 0, -2, 0, 5, 0, 5, 0, 1.50996e-07, -15, 6, 6 )
+shape = SubResource( 12 )
