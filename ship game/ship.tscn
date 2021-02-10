@@ -47,7 +47,7 @@ transform = Transform( 20, 0, 0, 0, -8.74228e-07, 1, 0, -20, -4.37114e-08, 0, 0,
 shape = SubResource( 6 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.41918, 0 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 9, 0 )
@@ -62,3 +62,6 @@ material/0 = null
 
 [node name="canin" parent="." instance=ExtResource( 2 )]
 transform = Transform( -0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 14, 2, 0 )
+
+[node name="canin2" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -16, 2, -7 )
