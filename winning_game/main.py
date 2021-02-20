@@ -92,7 +92,7 @@ while running:
 
 
     pygame.display.update()
-    clock.tick(1)
+    clock.tick(50)
     pygame.display.set_caption("MY GAME fps: " + str(clock.get_fps()))
 
 
