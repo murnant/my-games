@@ -4,7 +4,7 @@ import os
 y = 0
 i = 0
 current_choice = 2
-story = "aba"
+story = "abb"
 game = True
 # Start the game
 pygame.init()
