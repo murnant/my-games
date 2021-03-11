@@ -30,10 +30,10 @@ class Enemy():
                 self.show_x = False
 
 
-        if y > 1000 and self.hitbox.y > 500:
+        if y > 1000 and self.hitbox.y > 325:
             self.show_y = True
         else:
-            if y <= 0 and self.hitbox.y < 500:
+            if y <= 0 and self.hitbox.y < 325:
                 self.show_y = True
             else:
                 self.show_y = False
@@ -42,7 +42,7 @@ class Enemy():
             pygame.draw.rect(screen, (70, 255, 70), self.hitbox)
 
 
-enimies = [Enemy(378, 0, 1.7)]
+enimies = [Enemy(378, 0, 1)]
 
 pygame.init()
 while True:
@@ -75,4 +75,4 @@ while True:
 
     pygame.display.update() # finally pushes changes to the screen
 
-    clock.tick(50)
+    clock.tick(20)
