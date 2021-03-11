@@ -44,12 +44,23 @@ class Enemy():
 
 enimies = [Enemy(378, 0, 1)]
 
+boom_pic = pygame.image.load("boom.png")
+power = 50
+
 pygame.init()
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
     screen.fill((0,0,0))
+    mouse_x, mouse_y = pygame.mouse.get_pos()
+
+
+    if pygame.mouse.get_pressed()[0]:
+        #boom_hitbox = pygame.Rect(mouse_x - power / 2, mouse_y - power / 2, power, power)
+        boom_pic_small = pygame.transform.scale(boom_pic, (power, power))
+        boom_pic_small.set_colorkey((255,255,255))
+        screen.blit(boom_pic_small, (mouse_x - power / 2, mouse_y - power / 2))
 
     pygame.draw.line(screen, (70,255,70), (500,325), (x,y), 10)
     if y < 650 and down:
