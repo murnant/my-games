@@ -22,7 +22,7 @@ func get_input():
 			jump_timer -= 100
 			velocity.y = -1000
 		else:
-			jump_timer += 5
+			jump_timer += 30
 	#slashing code
 	if Input.is_action_pressed("f"):
 		if slash_cooldown <= 0:
@@ -38,7 +38,7 @@ func get_input():
 				else:
 					slash = false
 					slash_timer = 75
-					slash_cooldown = 100
+					slash_cooldown = 50
 			else:
 				rotate(0.02)
 	else:
@@ -51,7 +51,7 @@ func get_input():
 				else:
 					slash = false
 					slash_timer = 75
-					slash_cooldown = 100
+					slash_cooldown = 20
 			else:
 				rotate(-0.02)
 func _physics_process(delta):
@@ -65,14 +65,5 @@ func _on_Area2D_body_entered(b):
 	else:
 		queue_free()
 		
-		
-#func _on_jump_body_entered(b):
-	#if Input.is_action_pressed('up'):
-	#if not slash:
-		#velocity.y = -100
-		#velocity = move_and_slide(velocity)
-	
-	
-	
-	
+
 

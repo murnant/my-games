@@ -11,4 +11,4 @@ func _physics_process(delta):
 		var bullet = BULLET.instance()
 		bullet.global_transform = $Position2D.global_transform
 		get_node("/root").add_child(bullet)
-		timer = 50
+		timer = 300
