@@ -5,13 +5,17 @@ func _process(delta):
 		rotate_y(-0.01)
 	if Input.is_action_pressed('left'):
 		rotate_y(0.01)
+	if Input.is_action_pressed('q'):
+		$t/t.rotate_z(0.01)
+	if Input.is_action_pressed('e'):
+		$t/t.rotate_z(-0.01)
 	if Input.is_action_pressed('up'):
 		$t.rotate_x(0.01)
 	if Input.is_action_pressed('down'):
 		$t.rotate_x(-0.01)
 	if Input.is_action_pressed("f_or_j"):
-		velocity = -global_transform.basis.z * 7
-		velocity = -$t.global_transform.basis.z * 7
+		velocity += $t/t.global_transform.basis.y * 0.1
+		velocity.y *= 0.9
 	else:
-		velocity *= 0.9
+		velocity = Vector3()
 	move_and_slide(velocity)
