@@ -8,4 +8,4 @@ func _process(delta):
 		var bullet = BULLET.instance()
 		bullet.global_transform = $Position3D.global_transform
 		get_node("/root").add_child(bullet)
-		timer = 15
+		timer = 3
