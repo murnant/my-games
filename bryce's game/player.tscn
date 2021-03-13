@@ -6,7 +6,7 @@
 [ext_resource path="res://Attack helicopter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Crashed helicopter.glb" type="PackedScene" id=5]
 
-[sub_resource type="CapsuleShape" id=2]
+[sub_resource type="CapsuleShape" id=1]
 radius = 2.0
 height = 10.0
 
@@ -25,7 +25,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4435, -5.71069 )
 
 [node name="CollisionShape" type="CollisionShape" parent="t/t/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Attack helicopter2" parent="t/t" instance=ExtResource( 4 )]
 transform = Transform( -1, -5.65818e-08, 3.20891e-07, 0, 0.984808, 0.173648, -3.25841e-07, 0.173648, -0.984808, 0, -2, 1 )
