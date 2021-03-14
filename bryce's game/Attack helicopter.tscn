@@ -5,4 +5,4 @@
 [node name="Attack helicopter" instance=ExtResource( 1 )]
 
 [node name="glass16" parent="RootNode0/geo11" index="5"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.953, 1, -199.458 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -300 )
